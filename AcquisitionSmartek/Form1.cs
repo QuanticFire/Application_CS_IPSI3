@@ -13,10 +13,38 @@ namespace AcquisitionSmartek
         Rectangle m_rect;
         PixelFormat m_pixelFormat;
         UInt32 m_pixelType;
+        bool bout_state_n_precedent = false;
+
+        private int m_seuil;
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                portUsb.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Warning : USB Port Open failed, arduino is not connected ?");
+            }
+            
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                portUsb.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Warning : USB Port Close failed, arduino is not connected ?");
+            }
         }
 
         private void boutInit_Click(object sender, EventArgs e)
@@ -151,6 +179,50 @@ namespace AcquisitionSmartek
 
             this.Close();
         }
+
+        private void portUsb_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        {
+            
+            string s = portUsb.ReadLine();
+
+            bool bout_state = false;
+            if (s == "0\r")
+            {
+                bout_state = false;
+            }
+            else if (s == "1\r")
+            {
+                bout_state = true;
+            }
+            
+            if (bout_state == true && bout_state_n_precedent == false)
+            {
+                try
+                {
+                    Bitmap bitmap_pbimage = (Bitmap)this.pbImage.Image;
+                    pbTraitement.Image = bitmap_pbimage;
+                }
+                catch
+                {
+
+                }
+                
+            }
+            bout_state_n_precedent = bout_state;
+
+
+        }
+
+        private void boutTraitement_Click(object sender, EventArgs e)
+        {
+            Bitmap bitmap_pbimage = (Bitmap)this.pbImage.Image;
+
+            
+
+
+            pbTraitement.Image = bitmap_pbimage;
+        }
+
 
     }
 }

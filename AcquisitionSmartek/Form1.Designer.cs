@@ -40,8 +40,15 @@
             this.lblNomCamera = new System.Windows.Forms.Label();
             this.lblAdrIP = new System.Windows.Forms.Label();
             this.boutStop = new System.Windows.Forms.Button();
+            this.portUsb = new System.IO.Ports.SerialPort(this.components);
+            this.pbTraitement = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.boutTraitement = new System.Windows.Forms.Button();
+            this.pnlImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbCamera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTraitement)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlImage
@@ -51,17 +58,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlImage.AutoScroll = true;
             this.pnlImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlImage.Location = new System.Drawing.Point(528, 146);
+            this.pnlImage.Controls.Add(this.pbImage);
+            this.pnlImage.Location = new System.Drawing.Point(315, 13);
             this.pnlImage.Name = "pnlImage";
-            this.pnlImage.Size = new System.Drawing.Size(270, 308);
+            this.pnlImage.Size = new System.Drawing.Size(484, 443);
             this.pnlImage.TabIndex = 0;
             // 
             // pbImage
             // 
             this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage.Location = new System.Drawing.Point(315, 12);
+            this.pbImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbImage.Location = new System.Drawing.Point(0, 0);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(483, 442);
+            this.pbImage.Size = new System.Drawing.Size(482, 441);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
@@ -153,13 +162,53 @@
             this.boutStop.UseVisualStyleBackColor = true;
             this.boutStop.Click += new System.EventHandler(this.boutStop_Click);
             // 
+            // portUsb
+            // 
+            this.portUsb.PortName = "COM3";
+            this.portUsb.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.portUsb_DataReceived);
+            // 
+            // pbTraitement
+            // 
+            this.pbTraitement.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbTraitement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbTraitement.Location = new System.Drawing.Point(0, 0);
+            this.pbTraitement.Name = "pbTraitement";
+            this.pbTraitement.Size = new System.Drawing.Size(482, 441);
+            this.pbTraitement.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTraitement.TabIndex = 0;
+            this.pbTraitement.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoScroll = true;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pbTraitement);
+            this.panel1.Location = new System.Drawing.Point(928, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(484, 443);
+            this.panel1.TabIndex = 1;
+            // 
+            // boutTraitement
+            // 
+            this.boutTraitement.Location = new System.Drawing.Point(805, 211);
+            this.boutTraitement.Name = "boutTraitement";
+            this.boutTraitement.Size = new System.Drawing.Size(117, 28);
+            this.boutTraitement.TabIndex = 8;
+            this.boutTraitement.Text = "Traitement";
+            this.boutTraitement.UseVisualStyleBackColor = true;
+            this.boutTraitement.Click += new System.EventHandler(this.boutTraitement_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 466);
+            this.ClientSize = new System.Drawing.Size(1453, 638);
             this.ControlBox = false;
-            this.Controls.Add(this.pbImage);
+            this.Controls.Add(this.boutTraitement);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.boutStop);
             this.Controls.Add(this.gbCamera);
             this.Controls.Add(this.boutQuit);
@@ -168,9 +217,14 @@
             this.Controls.Add(this.pnlImage);
             this.Name = "Form1";
             this.Text = "Acquisition SMARTEK";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlImage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.gbCamera.ResumeLayout(false);
             this.gbCamera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTraitement)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -188,6 +242,10 @@
         private System.Windows.Forms.Label lblNomCamera;
         private System.Windows.Forms.Label lblAdrIP;
         private System.Windows.Forms.Button boutStop;
+        private System.IO.Ports.SerialPort portUsb;
+        private System.Windows.Forms.PictureBox pbTraitement;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button boutTraitement;
     }
 }
 

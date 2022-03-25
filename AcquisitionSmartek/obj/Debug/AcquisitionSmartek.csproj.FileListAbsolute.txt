@@ -21,3 +21,10 @@ C:\IPSI-3\Application_CS_IPSI3_dev\AcquisitionSmartek\AcquisitionSmartek\obj\Deb
 C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\bin\Debug\AcquisitionSmartek.exe.config
 C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.exe
 C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.pdb
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\bin\Debug\AcquisitionSmartek.exe
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\bin\Debug\AcquisitionSmartek.pdb
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\bin\Debug\CameraSuite_NET.dll
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.csprojResolveAssemblyReference.cache
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.Form1.resources
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.Properties.Resources.resources
+C:\IPSI-3\Application_CS_IPSI3\AcquisitionSmartek\obj\Debug\AcquisitionSmartek.csproj.GenerateResource.Cache
